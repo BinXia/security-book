@@ -88,7 +88,7 @@
         	.attr("y", 5)
     		.style("font-size",16)
     		.style("font-weight","bold")
-    		.style("fill",function(d){return text_color(d3.rgb(color((d.children?d:d.parent).name)))<125?"#eee":"#000"})
+    		.style("fill",function(d){return text_color(d3.rgb(color(root.name)))<125?"#eee":"#000"})
     		.html(root.name);
 
 
@@ -110,11 +110,11 @@
 			.each("end",function(e){d3.select(this).style("visibility",t(d,e)?null:"hidden")})
 
 			if(d.parent){
-				svg.select(".center-text")
+				svg.select(".center-text").transition().duration(duration)
 					.style("display","none")
             } 
             else {
-				svg.select(".center-text")
+				svg.select(".center-text").transition().duration(duration)
 					.style("display","")
             }
 		}
