@@ -7,4 +7,5 @@ path {
 text {
   font: 11px sans-serif;
   cursor: pointer;
+  weight: bold;
 }
