@@ -3,8 +3,8 @@
 	var jsonfile = host + "figs/vis_text.json",
 		instance = "#vis_text";
 
-	var width = 600,
-		height = 600,
+	var width = 800,
+		height = 800,
 		radius = (Math.min(width, height) / 2) - 10,
 		text_offset = 5,
 		duration = 750;
@@ -84,9 +84,9 @@
 		svg.append("text")
     		//.on("click",click)
     		.attr("class","center-text")
-    		.attr("x", -32)
+    		.attr("x", -28)
         	.attr("y", 5)
-    		.style("font-size",16)
+    		.style("font-size",14)
     		.style("font-weight","bold")
     		.style("fill",function(d){return text_color(d3.rgb(color(root.name)))<125?"#eee":"#000"})
     		.html(root.name);
