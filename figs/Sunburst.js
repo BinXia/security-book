@@ -1,13 +1,14 @@
 !function(){
 
-	var jsonfile = host + "figs/vis_text.json",
-		instance = "#vis_text";
+	var jsonfile = host + "figs/infoSecurity.json",
+		instance = "#Sunburst";
 
-	var width = 800,
-		height = 800,
+	var width = 1090,
+		height = 1090,
 		radius = (Math.min(width, height) / 2) - 10,
-		text_offset = 5,
-		duration = 750;
+		text_offset = 10,
+		duration = 750,
+		returnSign = "\t";
 
 	var x = d3.scale.linear()
 		.range([0, 2 * Math.PI]);
@@ -75,11 +76,11 @@
 			.on("click", click)
 		sub.append("tspan")
 		.attr("x",0)
-		.text(function(t){return t.depth?t.name.split(" ")[0]:""});
+		.text(function(t){return t.depth?t.name.split(returnSign)[0]:""});
 		sub.append("tspan")
 		.attr("x",0)
 		.attr("dy","1em")
-		.text(function(t){return t.depth?t.name.split(" ")[1]||"":""})
+		.text(function(t){return t.depth?t.name.split(returnSign)[1]||"":""})
 
 		svg.append("text")
     		//.on("click",click)
