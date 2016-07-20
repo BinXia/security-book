@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>信息安全</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -17,12 +17,6 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -34,48 +28,32 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
+                    <a class="side_label" id="homepage" href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a class="side_label" id="abstract" href="#">内容概况</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a class="side_label" id="introduction" href="#">前言</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a class="side_label" id="content" href="#">目录</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a class="side_label" id="authors" href="#">关于作者</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a class="side_label" id="about_us" href="#">联系我们并购买本书</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a class="side_label" id="mistakes" href="#">勘误</a>
                 </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <iframe id="frame" src="index_old.html" frameborder="0" height="100%" width="100%"></iframe>
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -93,6 +71,32 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    $(".side_label").click(function(){
+        if ($(this).attr("id") == "homepage") {
+            $("#frame").attr("src","pages/homepage.html")
+        }
+        else if ($(this).attr("id") == "abstract") {
+            $("#frame").attr("src","pages/abstract.html")
+        }
+        else if ($(this).attr("id") == "introduction") {
+            $("#frame").attr("src","pages/introduction.html")
+        }
+        else if ($(this).attr("id") == "content") {
+            $("#frame").attr("src","pages/content.html")
+        }
+        else if ($(this).attr("id") == "authors") {
+            $("#frame").attr("src","pages/authors.html")
+        }
+        else if ($(this).attr("id") == "about_us") {
+            $("#frame").attr("src","pages/about_us.html")
+        }
+        else if ($(this).attr("id") == "mistakes") {
+            $("#frame").attr("src","pages/mistakes.html")
+        }
+    });
+
+
     </script>
 
 </body>

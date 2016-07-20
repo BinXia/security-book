@@ -1,2 +1,2 @@
-// host = "./";
-host = "http://users.cis.fiu.edu/~bxia/InformationSecurity/";
+host = "../";
+// host = "http://users.cis.fiu.edu/~bxia/InformationSecurity/";
