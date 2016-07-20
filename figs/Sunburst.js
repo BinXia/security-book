@@ -112,11 +112,13 @@
 
 			if(d.parent){
 				svg.select(".center-text").transition().duration(duration)
-					.style("display","none")
+					.style("display","none");
+				text.style("font-size",10);
             } 
             else {
 				svg.select(".center-text").transition().duration(duration)
 					.style("display","")
+				text.style("font-size",8);
             }
 		}
 	});
