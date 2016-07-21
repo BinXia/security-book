@@ -32,9 +32,10 @@
         footer
         {
             position:absolute;
-            bottom:0;
+            top:400px;
+            /*bottom:0;*/
             left:5px;
-            height:320px;
+            /*height:320px;*/
         }
         .footer
         {
@@ -99,8 +100,7 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <!-- <iframe id="frame" src="pages/homepage.html" frameborder="1" height="100%" width="100%"></iframe> -->
-        <object id="frame" type="text/html" data="pages/homepage.html" width="100%" height="99%" style="overflow:auto;border:0px"></object>
+        <iframe id="frame" src="pages/homepage.html" frameborder="0" height="99.5%" width="100%"></iframe>
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -124,7 +124,7 @@
             var html;
             if (url != "")
                 html = "pages/"+url+".html";
-            $("#frame").attr("data",html);
+            $("#frame").attr("src",html);
         });
 
         $("#menu-toggle").click(function(e) {
@@ -134,25 +134,25 @@
 
         $(".side_label").click(function(){
             if ($(this).attr("id") == "homepage") {
-                $("#frame").attr("data","pages/homepage.html")
+                $("#frame").attr("src","pages/homepage.html")
             }
             else if ($(this).attr("id") == "abstract") {
-                $("#frame").attr("data","pages/abstract.html")
+                $("#frame").attr("src","pages/abstract.html")
             }
             else if ($(this).attr("id") == "introduction") {
-                $("#frame").attr("data","pages/introduction.html")
+                $("#frame").attr("src","pages/introduction.html")
             }
             else if ($(this).attr("id") == "content") {
-                $("#frame").attr("data","pages/content.html")
+                $("#frame").attr("src","pages/content.html")
             }
             else if ($(this).attr("id") == "authors") {
-                $("#frame").attr("data","pages/authors.html")
+                $("#frame").attr("src","pages/authors.html")
             }
             else if ($(this).attr("id") == "about_us") {
-                $("#frame").attr("data","pages/about_us.html")
+                $("#frame").attr("src","pages/about_us.html")
             }
             else if ($(this).attr("id") == "mistakes") {
-                $("#frame").attr("data","pages/mistakes.html")
+                $("#frame").attr("src","pages/mistakes.html")
             }
         });
 
