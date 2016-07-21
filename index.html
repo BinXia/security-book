@@ -18,6 +18,20 @@
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
 
+    <style type="text/css">
+        html, body, #wrapper
+        {
+            margin: 0px 0px;
+            width: 100%;
+            height: 100%;
+        }
+        #frame
+        {
+            margin: 5px 5px;
+        }
+    </style>
+
+
 </head>
 
 <body>
@@ -28,36 +42,39 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a class="side_label" id="homepage" href="#">首页</a>
+                    <a class="side_label" id="homepage" href="#_homepage">首页</a>
                 </li>
                 <li>
-                    <a class="side_label" id="abstract" href="#">内容概况</a>
+                    <a class="side_label" id="abstract" href="#_abstract">内容概况</a>
                 </li>
                 <li>
-                    <a class="side_label" id="introduction" href="#">前言</a>
+                    <a class="side_label" id="introduction" href="#_introduction">前言</a>
                 </li>
                 <li>
-                    <a class="side_label" id="content" href="#">目录</a>
+                    <a class="side_label" id="content" href="#_content">目录</a>
                 </li>
                 <li>
-                    <a class="side_label" id="authors" href="#">关于作者</a>
+                    <a class="side_label" id="authors" href="#_authors">关于作者</a>
                 </li>
                 <li>
-                    <a class="side_label" id="about_us" href="#">联系我们并购买本书</a>
+                    <a class="side_label" id="about_us" href="#_about_us">联系我们并购买本书</a>
                 </li>
                 <li>
-                    <a class="side_label" id="mistakes" href="#">勘误</a>
+                    <a class="side_label" id="mistakes" href="#_mistakes">勘误</a>
                 </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <iframe id="frame" src="index_old.html" frameborder="0" height="100%" width="100%"></iframe>
+        <!-- <iframe id="frame" src="pages/homepage.html" frameborder="1" height="100%" width="100%"></iframe> -->
+        <object id="frame" type="text/html" data="pages/homepage.html" width="100%" height="100%" style="overflow:auto;border:0px"></object>
         <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -67,34 +84,42 @@
 
     <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+        $(document).ready(function(){
+            var url = window.location.href.split("#")[1].replace(/_/,"");
+            var html;
+            if (url != "")
+                html = "pages/"+url+".html";
+            $("#frame").attr("data",html);
+        });
 
-    $(".side_label").click(function(){
-        if ($(this).attr("id") == "homepage") {
-            $("#frame").attr("src","pages/homepage.html")
-        }
-        else if ($(this).attr("id") == "abstract") {
-            $("#frame").attr("src","pages/abstract.html")
-        }
-        else if ($(this).attr("id") == "introduction") {
-            $("#frame").attr("src","pages/introduction.html")
-        }
-        else if ($(this).attr("id") == "content") {
-            $("#frame").attr("src","pages/content.html")
-        }
-        else if ($(this).attr("id") == "authors") {
-            $("#frame").attr("src","pages/authors.html")
-        }
-        else if ($(this).attr("id") == "about_us") {
-            $("#frame").attr("src","pages/about_us.html")
-        }
-        else if ($(this).attr("id") == "mistakes") {
-            $("#frame").attr("src","pages/mistakes.html")
-        }
-    });
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $(".side_label").click(function(){
+            if ($(this).attr("id") == "homepage") {
+                $("#frame").attr("data","pages/homepage.html")
+            }
+            else if ($(this).attr("id") == "abstract") {
+                $("#frame").attr("data","pages/abstract.html")
+            }
+            else if ($(this).attr("id") == "introduction") {
+                $("#frame").attr("data","pages/introduction.html")
+            }
+            else if ($(this).attr("id") == "content") {
+                $("#frame").attr("data","pages/content.html")
+            }
+            else if ($(this).attr("id") == "authors") {
+                $("#frame").attr("data","pages/authors.html")
+            }
+            else if ($(this).attr("id") == "about_us") {
+                $("#frame").attr("data","pages/about_us.html")
+            }
+            else if ($(this).attr("id") == "mistakes") {
+                $("#frame").attr("data","pages/mistakes.html")
+            }
+        });
 
 
     </script>
