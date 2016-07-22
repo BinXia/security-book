@@ -14,24 +14,25 @@
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-
+    <style type="text/css">
+        .titlename
+        {
+            cursor:pointer;
+        }
+    </style>
 
 </head>
 
 <body>
 
-    <div id="wrapper">
-        <!-- Page Content -->
-        <div>
+    <!-- container -->
+    <div class="container">
+        <h1 class="page-header">目录</h1>
+        <div id="content" class="row">
             
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-
-
-
+    <!-- /.container -->
 
     <!-- common setting -->
     <script src="../js/common.js"></script>
@@ -41,6 +42,79 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var titlelist = [
+                "第一章 简介",
+                "第二章 基于隐私保护的数据挖掘",
+                "第三章 恶意软件检测",
+                "第四章 入侵检测",
+                "第五章 日志分析",
+                "第六章 网络流量分析",
+                "第七章 网络安全态势评估",
+                "第八章 数字取证",
+                "第九章 网络安全数据集及采集"
+            ];
+            var paragragh;
+            var jsonURL = host+"texts/content.json";
+            $.getJSON(jsonURL,function(data){
+                paragragh = data;
+
+                for (var i = 1; i <= titlelist.length; i++) {
+                    var frame = $("<div>",{class:"col-lg-12"});
+                    var outline = $("<div>",{class:"col-lg-3"});
+                    var section = $("<div>",{id:"section_"+i,class:"panel panel-default"});
+                    var title = $("<div>",{id:"title_"+i,class:"panel-heading",onclick:"fold(this)"});
+                    var abstract = $("<div>",{id:"abstract_"+i,class:"panel-body",style:"display: none;"});
+                    var PPT = $("<button>",{id:"down_PPT_"+i,type:"button",class:"btn btn-primary btn-lg",onclick:"download(this)"});
+                    var span = $("<span>",{class:"glyphicon glyphicon-download-alt","aria-hidden":"true"});
+                    PPT.append(span).append("下载本章PPT");
+                    try{
+                        for (var para_j = 0; para_j < paragragh[i.toString()].length; para_j++) {
+                            var para = $("<p>").append(paragragh[i.toString()][para_j]);
+                            abstract.append(para);
+                        };
+                    }
+                    catch(err){
+                        var para = $("<p>");
+                        abstract.append(para);
+                    }
+                    abstract.append("<hr>").append(PPT);
+                    title.append(titlelist[i-1]);
+                    section.append(title).append(abstract);
+                    outline.append(section);
+                    frame.append(outline);
+
+                    $("#content").append(frame);
+                }
+            })
+        });
+
+        function fold(instance){
+            var current_id = "abstract_" + $(instance).attr("id").split("_")[1];
+            $("#"+current_id).toggle();
+            if ($(instance).parent().parent().attr("class") == "col-lg-10") {
+                $(instance).parent().parent().attr("class","col-lg-3");
+            }
+            else{
+                $(instance).parent().parent().attr("class","col-lg-10");
+            }
+        }
+
+        function download(instance){
+            type = $(instance).attr("id").split("_")[1];
+            section = $(instance).attr("id").split("_")[2];
+            if (type == "PPT") {
+                var filename = "xxx"+section;
+                window.open("../img/Tao_Li.jpg");
+            }
+        }
+
+    </script>
+
+
 
 
 </body>

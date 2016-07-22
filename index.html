@@ -32,8 +32,9 @@
         footer
         {
             position:absolute;
-            top:350px;
-            left:5px;
+            top:400px;
+            /*bottom:0px;*/
+            left:0px;
             /*height:320px;*/
         }
         .footer
@@ -69,6 +70,9 @@
                     <a class="side_label" id="content" href="#_content">目录</a>
                 </li>
                 <li>
+                    <a class="side_label" id="resource" href="#_resource">本书资源</a>
+                </li>
+                <li>
                     <a class="side_label" id="authors" href="#_authors">关于作者</a>
                 </li>
                 <li>
@@ -94,7 +98,9 @@
                 <div class="col-lg-offset-1">
                     <small class="copyright">Copyright &copy; KDRG 2016</small>
                 </div>
+                <!-- 
                 <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=BTc6&d=pzKv5xdVkVD7I8gvqHEm7lM8PcrQMrjRZ6ylt8O5dIk"></script>
+                -->    
             </footer>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -142,6 +148,9 @@
             }
             else if ($(this).attr("id") == "content") {
                 $("#frame").attr("src","pages/content.html")
+            }
+            else if ($(this).attr("id") == "resource") {
+                $("#frame").attr("src","pages/resource.html")
             }
             else if ($(this).attr("id") == "authors") {
                 $("#frame").attr("src","pages/authors.html")

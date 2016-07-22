@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>内容概要</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <button type="button" class="btn btn-primary" id="showOneDChart" style="width: 220px;"><i class="fa fa-bars"></i>&nbsp;&nbsp;Show Horizontal Bar Chart</button>
+                    </div>
+                    <div id="part_oneD_chart" class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6" style="width:150px">
+                                <button type="submit" id="highlight_data_oneD" class="btn btn-info btn-sm"><i class="fa fa-paint-brush"></i>&nbsp;&nbsp;Highlight</button>
+                            </div>
+                            <div class="col-lg-6" style="width:150px">
+                                <button type="submit" id="startover_data_oneD" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Start Over</button>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <h4 style="margin-left:20px;margin-top:0px;"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Show Atrributes:</h4>
+                            <div style="margin-left:20px;margin-bottom:0px;">
+                                <form role="form" id="attrSelectedOneD">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value="type_name" checked="checked">type_name
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value="source_name">source_name
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value="host_name">host_name
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div id="oneD_chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /#wrapper -->
+
+        <!-- common setting -->
+    <script src="../js/common.js"></script>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#part_oneD_chart").hide();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
