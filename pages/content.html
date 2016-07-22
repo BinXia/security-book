@@ -46,34 +46,26 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            var titlelist = [
-                "第一章 简介",
-                "第二章 基于隐私保护的数据挖掘",
-                "第三章 恶意软件检测",
-                "第四章 入侵检测",
-                "第五章 日志分析",
-                "第六章 网络流量分析",
-                "第七章 网络安全态势评估",
-                "第八章 数字取证",
-                "第九章 网络安全数据集及采集"
-            ];
+            var titlename;
             var paragragh;
             var jsonURL = host+"texts/content.json";
             $.getJSON(jsonURL,function(data){
-                paragragh = data;
+                var sec_num = 1;
+                while (typeof(data[sec_num.toString()])!="undefined"){
+                    titlename = data[sec_num.toString()].title;
+                    paragragh = data[sec_num.toString()].comment;
 
-                for (var i = 1; i <= titlelist.length; i++) {
                     var frame = $("<div>",{class:"col-lg-12"});
                     var outline = $("<div>",{class:"col-lg-3"});
-                    var section = $("<div>",{id:"section_"+i,class:"panel panel-default"});
-                    var title = $("<div>",{id:"title_"+i,class:"panel-heading",onclick:"fold(this)"});
-                    var abstract = $("<div>",{id:"abstract_"+i,class:"panel-body",style:"display: none;"});
-                    var PPT = $("<button>",{id:"down_PPT_"+i,type:"button",class:"btn btn-primary btn-lg",onclick:"download(this)"});
+                    var section = $("<div>",{id:"section_"+sec_num,class:"panel panel-default"});
+                    var title = $("<div>",{id:"title_"+sec_num,class:"panel-heading",onclick:"fold(this)"});
+                    var abstract = $("<div>",{id:"abstract_"+sec_num,class:"panel-body",style:"display: none;"});
+                    var PPT = $("<button>",{id:"down_PPT_"+sec_num,type:"button",class:"btn btn-primary btn-lg",onclick:"download(this)"});
                     var span = $("<span>",{class:"glyphicon glyphicon-download-alt","aria-hidden":"true"});
                     PPT.append(span).append("下载本章PPT");
                     try{
-                        for (var para_j = 0; para_j < paragragh[i.toString()].length; para_j++) {
-                            var para = $("<p>").append(paragragh[i.toString()][para_j]);
+                        for (var para_j = 0; para_j < paragragh.length; para_j++) {
+                            var para = $("<p>").append(paragragh[para_j]);
                             abstract.append(para);
                         };
                     }
@@ -82,12 +74,13 @@
                         abstract.append(para);
                     }
                     abstract.append("<hr>").append(PPT);
-                    title.append(titlelist[i-1]);
+                    title.append(titlename);
                     section.append(title).append(abstract);
                     outline.append(section);
                     frame.append(outline);
 
                     $("#content").append(frame);
+                    sec_num++;
                 }
             })
         });
