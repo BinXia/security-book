@@ -126,8 +126,10 @@
         $(document).ready(function(){
             var url = window.location.href.split("#")[1];
             var html;
-            if (url != "")
+            if (url != "" && typeof(url) != "undefined")
                 html = "pages/"+url+".html";
+            else
+                html = "pages/homepage.html";
             $("#frame").attr("src",html);
         });
 
