@@ -59,7 +59,7 @@
                     paragragh = data[sec_num.toString()].comment;
 
                     var frame = $("<div>",{class:"col-lg-12"});
-                    var outline = $("<div>",{class:"col-lg-3"});
+                    var outline = $("<div>",{class:"col-lg-10"});
                     var section = $("<div>",{id:"section_"+sec_num,class:"panel panel-default"});
                     var title = $("<div>",{id:"title_"+sec_num,class:"panel-heading",onclick:"fold(this)"});
                     var abstract = $("<div>",{id:"abstract_"+sec_num,class:"panel-body",style:"display: none;"});
@@ -90,13 +90,15 @@
 
         function fold(instance){
             var current_id = "abstract_" + $(instance).attr("id").split("_")[1];
-            $("#"+current_id).toggle();
-            if ($(instance).parent().parent().attr("class") == "col-lg-10") {
-                $(instance).parent().parent().attr("class","col-lg-3");
-            }
-            else{
-                $(instance).parent().parent().attr("class","col-lg-10");
-            }
+            
+            // if ($(instance).parent().parent().attr("class") == "col-lg-10") {
+            //     $(instance).parent().parent().attr("class","col-lg-3");
+            // }
+            // else{
+            //     $(instance).parent().parent().attr("class","col-lg-10");
+            // }
+            $("#"+current_id).toggle("slow");
+            
         }
 
         function download(instance){
