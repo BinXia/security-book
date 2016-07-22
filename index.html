@@ -58,28 +58,28 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a class="side_label" id="homepage" href="#_homepage">首页</a>
+                    <a class="side_label" id="homepage" href="#homepage">首页</a>
                 </li>
                 <li>
-                    <a class="side_label" id="abstract" href="#_abstract">内容概况</a>
+                    <a class="side_label" id="abstract" href="#abstract">内容概况</a>
                 </li>
                 <li>
-                    <a class="side_label" id="introduction" href="#_introduction">前言</a>
+                    <a class="side_label" id="introduction" href="#introduction">前言</a>
                 </li>
                 <li>
-                    <a class="side_label" id="content" href="#_content">目录</a>
+                    <a class="side_label" id="content" href="#content">目录</a>
                 </li>
                 <li>
-                    <a class="side_label" id="resource" href="#_resource">本书资源</a>
+                    <a class="side_label" id="resource" href="#resource">本书资源</a>
                 </li>
                 <li>
-                    <a class="side_label" id="authors" href="#_authors">关于作者</a>
+                    <a class="side_label" id="authors" href="#authors">关于作者</a>
                 </li>
                 <li>
-                    <a class="side_label" id="about_us" href="#_about_us">联系我们并购买本书</a>
+                    <a class="side_label" id="about_us" href="#about_us">联系我们并购买本书</a>
                 </li>
                 <li>
-                    <a class="side_label" id="mistakes" href="#_mistakes">勘误</a>
+                    <a class="side_label" id="mistakes" href="#mistakes">勘误</a>
                 </li>
             </ul>
 
@@ -124,7 +124,7 @@
     <!-- Menu Toggle Script -->
     <script>
         $(document).ready(function(){
-            var url = window.location.href.split("#")[1].substring(1);
+            var url = window.location.href.split("#")[1];
             var html;
             if (url != "")
                 html = "pages/"+url+".html";
