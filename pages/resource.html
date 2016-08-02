@@ -25,14 +25,16 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">
+                <h1 id="title" class="page-header">
                     本书相关资源下载
                 </h1>
             </div>
-            <div class="col-md-4">
+
+            <!-- 公共资源 -->
+            <div class="col-md-4 resource package">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> 全书PPT</h4>
+                        <h4><i class="fa fa-fw fa-check"></i>全书PPT</h4>
                     </div>
                     <div class="panel-body">
                         <p>本书所有章节PPT</p>
@@ -40,6 +42,45 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 第一章资源 -->
+            <div class="col-md-4 resource section-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i>第一章</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>第一章节</p>
+                        <a href="../resources/PPT/PPT.zip" target="_blank" class="btn btn-primary">下载</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 第二章资源 -->
+
+
+            <!-- 第三章资源 -->
+
+
+            <!-- 第四章资源 -->
+
+
+            <!-- 第五章资源 -->
+
+
+            <!-- 第六章资源 -->
+
+
+            <!-- 第七章资源 -->
+
+
+            <!-- 第八章资源 -->
+
+
+            <!-- 第九章资源 -->
+
+
         </div>
         <!-- /.row -->
         
@@ -57,8 +98,51 @@
 
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        var eng2chi = {
+            "section-1":"第1章",
+            "section-2":"第2章",
+            "section-3":"第3章",
+            "section-4":"第4章",
+            "section-5":"第5章",
+            "section-6":"第6章",
+            "section-7":"第7章",
+            "section-8":"第8章",
+            "section-9":"第9章"
+        };
 
+        function back2content(section){
+            parent.location.href = "../index.html#content#"+section;
+            parent.location.reload();
+        }
+
+        $(document).ready(function(){
+            var url = parent.location.href.split("#")[2];
+            if (typeof(url) != "undefined") {
+                $(".resource").each(function(){
+                    if ($(this).hasClass(url)) {
+                        $(this).attr("style","display: true");
+                    }
+                    else{
+                        $(this).attr("style","display: none");
+                    }
+                })
+                var href = $("<a>",{href:"./content.html#"+url});
+                var span = $("<span>",{class:"glyphicon glyphicon-chevron-left","aria-hidden":"true"});
+                $("#title").html("");
+                $("#title").append(href.append(span)).append(eng2chi[url]+"相关资源下载");
+            }
+            else{
+                $(".resource").each(function(){
+                    if ($(this).hasClass("package")){
+                        $(this).attr("style","display: true");
+                    }
+                    else{
+                        $(this).attr("style","display: none");
+                    }
+                    
+                });
+                $("#title").html("本书相关资源下载")
+            }
         });
 
 

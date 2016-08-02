@@ -49,6 +49,8 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
+            parent.location.href = "../index.html#content";
+
             var titlename;
             var paragragh;
             var jsonURL = host+"texts/content.json";
@@ -64,8 +66,11 @@
                     var title = $("<div>",{id:"title_"+sec_num,class:"panel-heading",onclick:"fold(this)"});
                     var abstract = $("<div>",{id:"abstract_"+sec_num,class:"panel-body",style:"display: none;"});
                     var PPT = $("<button>",{id:"down_PPT_"+sec_num,type:"button",class:"btn btn-primary btn-lg",onclick:"download(this)"});
+                    var resource = $("<button>",{id:"down_RES_"+sec_num,type:"button",class:"btn btn-primary btn-lg",onclick:"download(this)"});
                     var span = $("<span>",{class:"glyphicon glyphicon-download-alt","aria-hidden":"true"});
-                    PPT.append(span).append("下载本章PPT");
+                    PPT.append(span.append("下载本章PPT"));
+                    var span = $("<span>",{class:"glyphicon glyphicon-download-alt","aria-hidden":"true"});
+                    resource.append(span.append("下载本章相关资源"));
                     try{
                         for (var para_j = 0; para_j < paragragh.length; para_j++) {
                             var para = $("<p>").append(paragragh[para_j]);
@@ -76,7 +81,7 @@
                         var para = $("<p>");
                         abstract.append(para);
                     }
-                    abstract.append("<hr>").append(PPT);
+                    abstract.append("<hr>").append(PPT).append("&nbsp;").append(resource);
                     title.append(titlename);
                     section.append(title).append(abstract);
                     outline.append(section);
@@ -84,6 +89,12 @@
 
                     $("#content").append(frame);
                     sec_num++;
+                }
+
+                var url = window.location.href.split("#")[1].split("-")[1];
+                if (typeof(url) != "undefined") {
+                    $("#abstract_"+url).attr("style","display: true");
+                    window.location.href = "./content.html#abstract_"+url;
                 }
             })
         });
@@ -107,6 +118,10 @@
             if (type == "PPT") {
                 var filename = "section_"+section+".pptx";
                 window.open("../resources/PPT/"+filename);
+            }
+            else if (type == "RES") {
+                parent.location.href = "../index.html#resource#section-"+section;
+                parent.location.reload();
             }
         }
 
