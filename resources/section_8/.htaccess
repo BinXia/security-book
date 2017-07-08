@@ -1,0 +1,4 @@
+AuthName "Section_8"
+AuthType Basic
+AuthUserFile /a/bear.cs.fiu.edu./disk/bear-d/users/taoli/public_html/security-book/resources/section_8/.htpasswd 
+Require valid-user
