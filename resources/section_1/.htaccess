@@ -1,0 +1,4 @@
+AuthName "《网络安全中的数据挖掘技术》第一章"
+AuthType Basic
+AuthUserFile /a/bear.cs.fiu.edu./disk/bear-a/users/bxia/public_html/security-book/resources/section_1/.htpasswd 
+Require valid-user
