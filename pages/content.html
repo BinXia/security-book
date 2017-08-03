@@ -117,7 +117,7 @@
             section = $(instance).attr("id").split("_")[2];
             if (type == "PPT") {
                 var filename = "section_"+section+".pdf";
-                window.open("../resources/section_"+section+"/"+filename);
+                window.open(host+"resources/section_"+section+"/"+filename);
             }
             else if (type == "RES") {
                 parent.location.href = "../index.html#resource#section-"+section;
